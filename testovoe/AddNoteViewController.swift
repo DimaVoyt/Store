@@ -1,5 +1,5 @@
 //
-//  AddNoteViewController.swift
+//  AddProductViewController.swift
 //  testovoe
 //
 //  Created by Дмитрий Войтович on 18.07.2022.
@@ -9,7 +9,10 @@ import UIKit
 import FirebaseAuth
 import FirebaseFirestore
 import FirebaseStorage
-class AddNoteViewController: UIViewController {
+
+
+
+class AddProductViewController: UIViewController {
     
     private let firestore = Firestore.firestore()
     
@@ -133,7 +136,7 @@ class AddNoteViewController: UIViewController {
     }
 }
 
-extension AddNoteViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+extension AddProductViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
     func setupButtons() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(imageViewTapped))

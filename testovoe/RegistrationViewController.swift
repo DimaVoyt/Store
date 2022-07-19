@@ -9,6 +9,8 @@ import UIKit
 import FirebaseAuth
 import FirebaseFirestore
 
+
+
 class RegistrationViewController: UIViewController {
     
     private let firestore = Firestore.firestore()

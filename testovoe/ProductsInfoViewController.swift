@@ -11,6 +11,8 @@ import FirebaseFirestore
 import FirebaseStorage
 import Kingfisher
 
+
+
 class ProductsInfoViewController: UIViewController {
     
     private let product: Product
@@ -177,9 +179,7 @@ extension ProductsInfoViewController: UIImagePickerControllerDelegate & UINaviga
               let price = priceTextField.text,
               let count = countTextField.text,
               let _ = Auth.auth().currentUser else { return }
-        
         let noteDoc = self.firestore.collection("products").document(product.id)
-        
         upload(imageId: noteDoc.documentID, image: imageView.image!) { result in
             switch result {
             case .success(let url):
@@ -215,6 +215,7 @@ extension ProductsInfoViewController: UIImagePickerControllerDelegate & UINaviga
             completion(.failure(AppError.unknown))
             return
         }
+        
         let ref = Storage.storage().reference().child(currentUser.uid).child(imageId + ".jpg")
         let metadata = StorageMetadata()
         metadata.contentType = "image/jpeg"

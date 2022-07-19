@@ -7,6 +7,8 @@
 
 import UIKit
 import Firebase
+
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
@@ -44,7 +46,7 @@ class MainNavigationController: UINavigationController {
     }
     
     func switchToMain() {
-        let viewController = MainViewController()
+        let viewController = ProductsViewController()
         setViewControllers([viewController], animated: false)
     }
 }

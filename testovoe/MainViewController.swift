@@ -9,7 +9,10 @@ import UIKit
 import FirebaseAuth
 import FirebaseFirestore
 import FirebaseStorage
-class MainViewController: UIViewController, UITableViewDataSource {
+
+
+
+class ProductsViewController: UIViewController {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         products.count
     }
@@ -49,11 +52,11 @@ class MainViewController: UIViewController, UITableViewDataSource {
     
 }
 
-private extension MainViewController {
+private extension ProductsViewController {
     func setupNavigationTitle() {
         navigationController?.isNavigationBarHidden = false
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(handleLogout))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage.init(systemName: "plus"), style: .plain, target: self, action: #selector(addNote))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage.init(systemName: "plus"), style: .plain, target: self, action: #selector(addProduct))
     }
     
     func setupConstraints() {
@@ -65,8 +68,8 @@ private extension MainViewController {
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
     
-    @objc func addNote() {
-        let vc = AddNoteViewController()
+    @objc func addProduct() {
+        let vc = AddProductViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -104,7 +107,7 @@ private extension MainViewController {
     
 }
 
-extension MainViewController: UITableViewDelegate {
+extension ProductsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)

@@ -7,6 +7,9 @@
 
 import UIKit
 import Kingfisher
+
+
+
 class CustomViewCell: UITableViewCell {
     
     let countTextField: UITextField = {
